@@ -23,8 +23,8 @@ import { ErrorPageWithoutStyle } from './routes/error/ErrorPage';
 import errorPageStyle from './routes/error/ErrorPage.css';
 import passport from './core/passport';
 import router from './core/router';
-import models from './data/models';
-import schema from './data/schema';
+import models from './graphql/models';
+import schema from './graphql/schema';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import { port, auth } from './config';
 
