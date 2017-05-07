@@ -27,8 +27,11 @@ import models from './graphql/models';
 import schema from './graphql/schema';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import { port, auth } from './config';
+import mongoose from 'mongoose';
 
 const app = express();
+
+mongoose.connect('mongodb://127.0.0.1:27017/blog');
 
 //
 // Tell any CSS tooling (such as Material UI) to use all vendor prefixes if the

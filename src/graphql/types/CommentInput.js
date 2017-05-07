@@ -3,12 +3,12 @@
  */
 import {
 	GraphQLID as ID,
-	GraphQLObjectType as ObjectType,
+    GraphQLInputObjectType as InputObjectType,
 	GraphQLNonNull as NonNull,
 	GraphQLString as String
 } from 'graphql';
 
-export default new ObjectType({
+export default new InputObjectType({
 	name: 'CommentInput',
 	fields: {
 		_id: {

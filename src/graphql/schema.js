@@ -22,9 +22,7 @@ const schema = new Schema({
 	}),
 	mutation: new ObjectType({
 		name: 'Mutation',
-		fields: {
-			mutations
-		}
+		fields: mutations
 	})
 });
 

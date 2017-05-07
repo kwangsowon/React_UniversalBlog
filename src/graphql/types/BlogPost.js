@@ -4,9 +4,9 @@
 import {
 	GraphQLObjectType as ObjectType,
 	GraphQLNonNull as NonNull,
-	GraphQLString as String,
 	GraphQLID as ID
 } from 'graphql';
+import BlogPostComment from './BlogPostCommon';
 
 export default new ObjectType({
 	name: 'BlogPost',
@@ -14,11 +14,6 @@ export default new ObjectType({
 		_id: {
 			type: new NonNull(ID)
 		},
-		title: {
-			type: String
-		},
-		description: {
-			type: String
-		}
+        ...BlogPostComment
 	}
 })
