@@ -31,7 +31,7 @@ import mongoose from 'mongoose';
 
 const app = express();
 
-mongoose.connect('mongodb://127.0.0.1:27017/blog');
+mongoose.connect('mongodb://127.0.0.1:27017/universalBlog');
 
 //
 // Tell any CSS tooling (such as Material UI) to use all vendor prefixes if the

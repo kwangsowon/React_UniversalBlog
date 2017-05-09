@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import Home from './Home';
+import BlogContent from './BlogContent';
 import fetch from '../../core/fetch';
 import Layout from '../../components/Layout';
 
@@ -25,21 +25,21 @@ export default {
             },
             body: JSON.stringify({
                 query: `{
-                    blogs: blogPosts{
+                    blog: blogPost(_id: "583ecd6c31d94535842bc18c"){
                         _id,
                         title,
-                        plaintext
+                        content
                     }
                 }`,
             }),
             credentials: 'include',
         });
         const {data} = await resp.json();
-        /*console.log(data);*/
-        if (!data || !data.blogs) throw new Error('Failed to load the news feed.');
+        console.log(data);
+        if (!data || !data.blog) throw new Error('Failed to load the news feed.');
         return {
             title: 'React Starter Kit',
-            component: <Layout><Home blogs={data.blogs}/></Layout>,
+            component: <Layout><BlogContent blog={data.blog}/></Layout>,
         };
     },
 
