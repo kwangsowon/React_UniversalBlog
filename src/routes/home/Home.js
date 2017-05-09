@@ -29,7 +29,7 @@ class Home extends React.Component {
                         {this.props.blogs.map(item => (
                             <li className={s.blogItem} key={item._id}>
                                 <article>
-									<Link to={`/blog`}>
+									<Link to={`/blog/${item._id}`}>
 										<h1>{item.title}</h1>
 										<div
 											className={s.blogPlainText}

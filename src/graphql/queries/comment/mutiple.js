@@ -12,11 +12,11 @@ export default {
 	type: new List(CommentType),
 	args: {},
 	resolve(root, params, options){
-		const projection = getProjection(options.fieldASTs[0]);
+		/*const projection = getProjection(options.fieldASTs[0]);*/
 
 		return CommentModel
 			.find()
-			.select(projection)
+			//.select(projection)
 			.exec();
 	}
 }

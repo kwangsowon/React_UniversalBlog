@@ -19,11 +19,9 @@ export default {
 		}
 	},
 	resolve(root, params, options){
-		const projection = getProjection(options.fieldsASTs[0]);
 
 		return BlogPostModel
 			.findById(params.id)
-			.select(projection)
 			.exec();
 	}
 }

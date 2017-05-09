@@ -14,9 +14,11 @@ import Layout from '../../components/Layout';
 
 export default {
 
-    path: '/',
+	path: '/blog/:id',
 
-    async action() {
+    async action({ path, params, query }) {
+		const id = params.id;
+		console.log(id);
         const resp = await fetch('/graphql', {
             method: 'post',
             headers: {
@@ -25,7 +27,7 @@ export default {
             },
             body: JSON.stringify({
                 query: `{
-                    blog: blogPost(_id: "583ecd6c31d94535842bc18c"){
+                    blog: blogPost(id: id){
                         _id,
                         title,
                         content
@@ -35,7 +37,7 @@ export default {
             credentials: 'include',
         });
         const {data} = await resp.json();
-        console.log(data);
+        //console.log(data);
         if (!data || !data.blog) throw new Error('Failed to load the news feed.');
         return {
             title: 'React Starter Kit',
