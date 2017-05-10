@@ -16,33 +16,32 @@ export default {
 
 	path: '/blog/:id',
 
-    async action({ path, params, query }) {
+	async action({path, params, query}) {
 		const id = params.id;
-		console.log(id);
-        const resp = await fetch('/graphql', {
-            method: 'post',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                query: `{
+		const resp = await fetch('/graphql', {
+			method: 'post',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				query: `{
                     blog: blogPost(id: id){
                         _id,
                         title,
                         content
                     }
                 }`,
-            }),
-            credentials: 'include',
-        });
-        const {data} = await resp.json();
-        //console.log(data);
-        if (!data || !data.blog) throw new Error('Failed to load the news feed.');
-        return {
-            title: 'React Starter Kit',
-            component: <Layout><BlogContent blog={data.blog}/></Layout>,
-        };
-    },
+			}),
+			credentials: 'include',
+		});
+		const {data} = await resp.json();
+		//console.log(data);
+		if (!data || !data.blog) throw new Error('Failed to load the news feed.');
+		return {
+			title: 'React Starter Kit',
+			component: <Layout><BlogContent blog={data.blog}/></Layout>,
+		};
+	},
 
 };
