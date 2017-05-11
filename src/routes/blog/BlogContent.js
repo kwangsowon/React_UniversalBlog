@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReadEditor from '../../components/ReadEditor/ReadEditor';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './index.css';
 
@@ -13,7 +14,7 @@ class BlogContent extends React.Component {
 		return (
 			<div className={s.container}>
 				<h1>{title}</h1>
-				<div>{content}</div>
+				<ReadEditor id={'blogContent'} content={content}/>
 			</div>
 		);
 	}

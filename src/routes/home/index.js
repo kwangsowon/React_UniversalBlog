@@ -35,8 +35,7 @@ export default {
             credentials: 'include',
         });
         const {data} = await resp.json();
-        /*console.log(data);*/
-        if (!data || !data.blogs) throw new Error('Failed to load the news feed.');
+        if (!data || !data.blogs) throw new Error('Failed to load the blogs.');
         return {
             title: 'React Starter Kit',
             component: <Layout><Home blogs={data.blogs}/></Layout>,

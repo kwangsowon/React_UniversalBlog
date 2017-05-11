@@ -11,33 +11,27 @@ import React from 'react';
 import BlogContent from './BlogContent';
 import fetch from '../../core/fetch';
 import Layout from '../../components/Layout';
+import {httpConfig} from '../../customerConfig';
 
 export default {
 
 	path: '/blog/:id',
 
 	async action({path, params, query}) {
-		const id = params.id;
 		const resp = await fetch('/graphql', {
-			method: 'post',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-			},
+			...httpConfig,
 			body: JSON.stringify({
 				query: `{
-                    blog: blogPost(id: id){
+                    blog: blogPost(id: "${params.id}"){
                         _id,
                         title,
                         content
                     }
                 }`,
 			}),
-			credentials: 'include',
 		});
 		const {data} = await resp.json();
-		//console.log(data);
-		if (!data || !data.blog) throw new Error('Failed to load the news feed.');
+		if (!data || !data.blog) throw new Error('Failed to load the blog.');
 		return {
 			title: 'React Starter Kit',
 			component: <Layout><BlogContent blog={data.blog}/></Layout>,
