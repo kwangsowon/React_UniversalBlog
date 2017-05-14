@@ -15,6 +15,7 @@ class ReadEditor extends Component {
 		this.editor.disable();
 		// 初始化内容
 		this.editor.$txt.html(content);
+		console.log(content);
     }
 
     componentWillReceiveProps(nextProps){
@@ -25,7 +26,6 @@ class ReadEditor extends Component {
     	const {content} = this.props;
         return (
             <div id={this.props.id} contentEditable="false">
-				{content}
             </div>
         );
     }
