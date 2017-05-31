@@ -25,7 +25,6 @@ class ReadEditor extends Component {
     	const {content} = this.props;
         return (
             <div id={this.props.id} contentEditable="false">
-				{content}
             </div>
         );
     }
