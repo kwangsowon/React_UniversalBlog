@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import s from './index.css';
 
 class ReadEditor extends Component {
