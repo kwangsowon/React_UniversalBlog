@@ -25,15 +25,11 @@ class ReadEditor extends Component {
     }
 
     render() {
-    	const {content} = this.props;
-        return (
-            <div
-                id={this.props.id}
-                contentEditable="false"
-                dangerouslySetInnerHTML={{ __html: content }}
-            >
-            </div>
-        );
+        const {id, content} = this.props;
+        return (<Editor
+            contentState={content}
+            //onContentStateChange={this.onChange}
+        />)
     }
 }
 
