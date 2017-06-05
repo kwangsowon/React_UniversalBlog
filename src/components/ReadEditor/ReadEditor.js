@@ -17,19 +17,19 @@ class ReadEditor extends Component {
 		this.editor.disable();
 		// 初始化内容
 		this.editor.$txt.html(content);
-		console.log(content);
+		console.log('componentDidMount blog content');
     }
 
-    componentWillReceiveProps(nextProps){
-        this.editor.$txt.html(nextProps.content);
-    }
+	componentWillReceiveProps(nextProps){
+		this.editor.$txt.html(nextProps.content);
+	}
 
     render() {
-        const {id, content} = this.props;
-        return (<Editor
-            contentState={content}
-            //onContentStateChange={this.onChange}
-        />)
+		console.log('render blog content');
+        return (
+			<div id={this.props.id} contentEditable="false">
+			</div>
+        );
     }
 }
 
